@@ -30,6 +30,9 @@ class VisibleMap {
     }
 
     get(x, y) {
+        if (!this.tiles[x] || !this.tiles[x][y]) {
+            return Tiles.WATER
+        }
         return this.tiles[x][y]
     }
 

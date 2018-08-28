@@ -16,6 +16,7 @@ var game = new Phaser.Game(config);
 
 let map
 let player
+let camera
 
 function preload() {
     this.load.setBaseURL('http://127.0.0.1:8080/');
@@ -23,13 +24,18 @@ function preload() {
     VisibleMap.preload(this)
 }
 
+
+
 function create() {
     map = new VisibleMap()
     map.create(this)
     player = new Player()
     player.create(this)
+    camera = new Camera()
+    camera.create(this)
 }
 
 function update() {
     player.update(this)
+    camera.update(this)
 }
