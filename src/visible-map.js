@@ -25,6 +25,10 @@ class VisibleMap {
         }
     }
 
+    getAtPixel(x, y) {
+        return this.get(Math.round(x / 16), Math.round(y / 16))
+    }
+
     get(x, y) {
         return this.tiles[x][y]
     }

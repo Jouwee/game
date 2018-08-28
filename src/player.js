@@ -87,6 +87,8 @@ class Player {
     }
 
     update(game) {
+        const oldX = this.pos.x
+        const oldY = this.pos.y
         this.state = 'idle'
         if (this.AKey.isDown) {
             this.state = 'walk'
@@ -117,6 +119,14 @@ class Player {
                 this.walkSound.stop();
             }
             this.lastAnim = this.anim
+        }
+        if (!map.getAtPixel(this.pos.x, this.pos.y).walkable) {
+            if (this.AKey.isDown || this.DKey.isDown) {
+                this.pos.x = oldX
+            }
+            if (this.WKey.isDown || this.SKey.isDown) {
+                this.pos.y = oldY
+            }
         }
         this.sprite.x = this.pos.x
         this.sprite.y = this.pos.y

@@ -1,4 +1,4 @@
 const Tiles = {
-    GRASS: { tile: 0 },
-    WATER: { tile: 1 }
+    GRASS: { tile: 0, walkable: true },
+    WATER: { tile: 1, walkable: false }
 }
